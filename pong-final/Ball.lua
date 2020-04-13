@@ -63,5 +63,8 @@ function Ball:update(dt)
 end
 
 function Ball:render()
-    love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    -- love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    imgPath = '1646-birthday-cake.png'
+    img = love.graphics.newImage(imgPath)
+    love.graphics.draw(img, self.x, self.y, 0, 1, 1);
 end

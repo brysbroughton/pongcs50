@@ -26,12 +26,13 @@ Paddle = Class{}
     have their own x, y, width, and height values, thus serving as containers
     for data. In this sense, they're very similar to structs in C.
 ]]
-function Paddle:init(x, y, width, height)
+function Paddle:init(x, y, width, height, player)
     self.x = x
     self.y = y
     self.width = width
     self.height = height
     self.dy = 0
+    self.player = player
 end
 
 function Paddle:update(dt)
@@ -58,5 +59,13 @@ end
     newest version of LÖVE2D, you can even draw rounded rectangles!
 ]]
 function Paddle:render()
-    love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    -- love.graphics.rectangle('fill', self.x, self.y, self.width, self.height)
+    imgPath = ''
+    if (self.player == 1) then
+        imgPath = 'IMG_4113.png'
+    else
+        imgPath = 'IMG_4194.png'
+    end
+    img = love.graphics.newImage(imgPath)
+    love.graphics.draw(img, self.x, self.y, 0, 1, 1);
 end
